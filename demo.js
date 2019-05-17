@@ -6,7 +6,8 @@ class Browser {
     async prepareBrowser() {
         let browser = await puppeteer.launch({
             headless: true,
-            args: ['--proxy-server=']
+            args: ['--proxy-server='],
+            slowMo: 250
         });
 
 
@@ -17,7 +18,7 @@ class Browser {
 
         await page.goto("https://www.softwerkskammer.org/");
 
-        await page.screenshot({path: 'example.png'});
+        await page.click('a[href^="/dashboard"]');
 
         await browser.close();
     }

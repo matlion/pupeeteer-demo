@@ -1,0 +1,24 @@
+{
+  "name": "link-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@repository.nionex.net:7999/dmg/link-checker.git"
+  },
+  "author": "me",
+  "license": "MIT",
+  "dependencies": {
+    "global-tunnel-ng": "^2.7.1",
+    "got": "^9.3.2",
+    "puppeteer": "^1.10.0",
+    "readline-sync": "^1.4.9",
+    "tough-cookie": "^2.4.3",
+    "tunnel": "0.0.6",
+    "yargs": "^12.0.5"
+  }
+}

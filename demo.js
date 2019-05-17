@@ -13,35 +13,13 @@ class Browser {
         // open chromium
         let page = await browser.newPage();
 
-        // setup console logging
-        page.on('console',
-            msg => {
-                if (msg._type === "error") {
-                    let message = 'ERROR Console: ' + msg.text();
-                    console.log(message);
-                }
-            }
-        );
-
-        // setup network logging
-        await page.setRequestInterception(true);
-
-        page.on('request', request => {
-            request.continue(); // pass it through.
-        });
-
-        page.on('response', response => {
-            const req = response.request();
-            let status = response.status();
-            if (!Util.isStatusOk(status)) {
-                let message = 'ERROR Brow-Net: url ' + req.url() + ' status ' + status;
-                console.log(message);
-            }
-        });
-
         page.setViewport({width: 1920, height: 1200});
 
         await page.goto("https://www.softwerkskammer.org/");
+
+        await page.screenshot({path: 'example.png'});
+
+        await browser.close();
     }
 }
 
